@@ -15,5 +15,4 @@ while 1:
 
     serverSocket.sendto(str(responseMessage).encode(), clientAddress)
     print("Fechando servidor...")
-    serverSocket.close()
-    exit()
+serverSocket.close()
