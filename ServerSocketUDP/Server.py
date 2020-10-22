@@ -7,12 +7,12 @@ serverSocket.bind(("", serverPort))
 print('Esse servidor esta pronto para receber')
 while 1:
     print('Esperando...')
-
-    message, clientAddress = serverSocket.recvfrom(2048)
-    messageDecoded = message.decode()
-
-    responseMessage = eval(messageDecoded)
-
-    serverSocket.sendto(str(responseMessage).encode(), clientAddress)
-    print("Fechando servidor...")
+    try:
+        message, clientAddress = serverSocket.recvfrom(2048)
+        messageDecoded = message.decode()
+        responseMessage = eval(messageDecoded)
+        serverSocket.sendto(str(responseMessage).encode(), clientAddress)
+        print("Fechando servidor...")
+    except OSError:
+        break
 serverSocket.close()
