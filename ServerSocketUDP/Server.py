@@ -12,7 +12,8 @@ while 1:
         messageDecoded = message.decode()
         responseMessage = eval(messageDecoded)
         serverSocket.sendto(str(responseMessage).encode(), clientAddress)
-        print("Fechando servidor...")
+        print("Fechando conexão...")
     except OSError:
         break
+print("Fechando servidor...")
 serverSocket.close()
